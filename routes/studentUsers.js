@@ -1,13 +1,18 @@
+//ROUTES + CONTROLLER
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const { check, validationResult } = require('express-validator');
+const { check, validationResult } = require('express-validator'); //isemail, .isempty
 
 // Include Student User model
 const StudentUser = require('../models/StudentUser');
 
+
+
+//STUDENT SIGN IN/REGISTER
 
 // @route       POST /api/users/studentUsers
 // @desc        Register a student user

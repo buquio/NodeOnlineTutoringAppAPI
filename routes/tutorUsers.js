@@ -1,3 +1,5 @@
+//ROUTES + CONTROLLER
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -7,9 +9,13 @@ const config = require('config');
 // const auth = require('../middleware/adminAuth');
 const { check, validationResult } = require('express-validator');
 
-// Include Student User model
+// Include Tutor User model
 const TutorUser = require('../models/TutorUser');
-const AdminUser = require('../models/AdminUser');
+// const AdminUser = require('../models/AdminUser');
+
+
+
+//TUTOR SIGN IN/REGISTER
 
 // @route       POST /api/users/tutors
 // @desc        Register tutors user
@@ -25,7 +31,7 @@ router.post(
             .isLength({ min: 6 }),
     ], 
     async (req, res) => {
-        // res.send('Student registered!');
+        // res.send('Tutor registered!');
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });

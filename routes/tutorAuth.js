@@ -1,3 +1,5 @@
+//ROUTES + CONTROLLER
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -9,6 +11,9 @@ const { check, validationResult } = require('express-validator');
 // Include User Model
 const TutorUser = require('../models/TutorUser');
 
+
+
+//TUTOR LOGIN
 
 // @route       GET /api/tutorAuth
 // @desc        Get logged in tutor user

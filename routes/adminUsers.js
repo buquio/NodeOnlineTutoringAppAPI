@@ -1,3 +1,4 @@
+//ROUTES + CONTROLLER
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -11,6 +12,8 @@ const { check, validationResult } = require('express-validator');
 const AdminUser = require('../models/AdminUser');
 const TutorUser = require('../models/TutorUser');
 
+
+//ADMIN SIGN IN/REGISTER using ADMIN ID +gets all tutors+ gets tutors by id +deactivates Tutor
 
 // @route       POST api/users/admin
 // @desc        Register an admin based on if tutor has tutorId
@@ -82,6 +85,7 @@ router.post(
 );
 
 
+//ADMIN GET ALL TUTORS
 // @route       GET api/users/admin/tutors
 // @desc        Super admin gets all tutors
 // @accees      Private
@@ -113,6 +117,9 @@ router.get('/tutors', auth, async (req, res) => {
 });
 
 
+
+//ADMIN GET TUTORS BY ID
+
 // @route       GET api/users/admin/tutors
 // @desc        Super admin gets tutors by id
 // @accees      Private
@@ -139,6 +146,10 @@ router.get('/tutors/:id', auth, async (req, res) => {
     }
 });
 
+
+
+//ADMIN DEACTIVATE TUTOR
+
 // @route       PUT api/users/admin/tutors
 // @desc        Super admin deactivates Tutor
 // @accees      Private
@@ -155,11 +166,10 @@ router.put('/tutors/:id', auth, async (req, res) => {
 
             if (!tutorUser) return res.status(404).json({ msg: 'Tutor not found' });
 
-            let { isAdmin, isActive } = req.body;
-
-            let tutorFields = {};
-        
             // Activate or Deactivate Tutor
+            let tutorFields = {}; //??
+            let { isAdmin, isActive } = req.body; //??
+
             if (isActive) {
                 tutorFields.isActive = isActive;
             }

@@ -1,3 +1,5 @@
+//ROUTES + CONTROLLER
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -10,8 +12,13 @@ const { check, validationResult } = require('express-validator');
 const TutorUser = require('../models/TutorUser');
 const AdminUser = require('../models/AdminUser');
 
+
+//REQUIRE ADMIN ID FOR ADMIN OR ADMIN-TUTOR FOR LOGIN AS ADMIN LOGIN OR ADMIN-TUTOR LOGIN
+
+
+// ADMIN-TUTOR LOGIN
 // @route       GET /api/adminAuth
-// @desc        Get logged in admin tutor
+// @desc        Get logged in admin-tutor
 // @accees      Private
 router.get('/', auth, async (req, res) => {
     // res.send('Get logged in admin');
@@ -25,6 +32,9 @@ router.get('/', auth, async (req, res) => {
 });
 
 
+
+
+// ADMIN LOGIN
 // @route       POST /api/adminAuth
 // @desc        Auth user admin & get token (admin logs in)
 // @access      Public

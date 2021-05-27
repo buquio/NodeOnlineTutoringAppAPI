@@ -1,3 +1,4 @@
+//ROUTES + CONTROLLER
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -9,6 +10,9 @@ const { check, validationResult } = require('express-validator');
 // Include Student User Middleware
 const StudentUser = require('../models/StudentUser');
 
+
+
+//STUDENT LOGIN
 
 // @route       GET /api/studentAuth
 // @desc        Get logged in student user
